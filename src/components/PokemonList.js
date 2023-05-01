@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   FlatList,
@@ -10,7 +10,17 @@ import PokemonCard from "./PokemonCard";
 export default function PokemonList(props) {
   const { pokemons, loadPokemons, isNext } = props;
 
-  const laodMore = () => {
+  const [selectedToBattle, setSelectedToBattle] = useState([]);
+
+  const handleSelectedToBattle = (selectedPokemon) => {
+    console.log("llamado desde hijo");
+    console.log(selectedPokemon);
+    setSelectedToBattle(...selectedToBattle, selectedPokemon);
+    console.log("A ver que quedo en el estado:");
+    console.log(selectedToBattle);
+  };
+
+  const loadMore = () => {
     loadPokemons();
   };
 
@@ -20,9 +30,14 @@ export default function PokemonList(props) {
       numColumns={2}
       showsVerticalScrollIndicator={false}
       keyExtractor={(pokemon) => String(pokemon.id)}
-      renderItem={({ item }) => <PokemonCard pokemon={item} />}
+      renderItem={({ item }) => (
+        <PokemonCard
+          pokemon={item}
+          handleSelectedToBattle={handleSelectedToBattle}
+        />
+      )}
       contentContainerStyle={styles.flatListContentContainer}
-      onEndReached={isNext && laodMore}
+      onEndReached={isNext && loadMore}
       onEndReachedThreshold={0.1}
       ListFooterComponent={
         isNext && (

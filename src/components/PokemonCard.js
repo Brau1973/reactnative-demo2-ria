@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -11,7 +11,8 @@ import { useNavigation } from "@react-navigation/native";
 import getColorByPokemonType from "../utils/getColorByPokemonType";
 
 export default function PokemonCard(props) {
-  const { pokemon } = props;
+  //const [selectedToBattle, setSelectedToBattle] = useState(null);
+  const { pokemon, handleSelectedToBattle } = props;
   const navigation = useNavigation();
 
   const pokemonColor = getColorByPokemonType(pokemon.type);
@@ -21,16 +22,33 @@ export default function PokemonCard(props) {
     navigation.navigate("Pokemon", { id: pokemon.id });
   };
 
+  const handleSelectedToBattleChild = (pokemon) => {
+    handleSelectedToBattle(pokemon);
+  };
+
+  // function handleSelectedToBattle() {
+  //   if (selectedToBattle == "../assets/battleIcon.png")
+  //     setSelectedToBattle(null);
+  //   else setSelectedToBattle("../assets/battleIcon.png");
+  // }
+
   return (
-    <TouchableWithoutFeedback onPress={goToPokemon}>
+    <TouchableWithoutFeedback
+      onPress={() => handleSelectedToBattleChild(pokemon)}
+    >
       <View style={styles.card}>
         <View style={styles.spacing}>
           <View style={bgStyles}>
+            {/* <Img src={selectedToBattle} alt="colours" /> */}
+            {/* <Image source={selectedToBattle} style={styles.battleIcon} /> */}
+            {/* <Text style={styles.number}>{selectedToBattle}</Text> */}
             <Text style={styles.number}>
               #{`${pokemon.order}`.padStart(3, 0)}
             </Text>
             <Text style={styles.name}>{capitalize(pokemon.name)}</Text>
-            <Image source={{ uri: pokemon.image }} style={styles.image} />
+            <TouchableWithoutFeedback onPress={goToPokemon}>
+              <Image source={{ uri: pokemon.image }} style={styles.image} />
+            </TouchableWithoutFeedback>
           </View>
         </View>
       </View>
@@ -71,5 +89,12 @@ const styles = StyleSheet.create({
     right: 2,
     width: 90,
     height: 90,
+  },
+  battleIcon: {
+    position: "absolute",
+    width: 40,
+    height: 40,
+    bottom: 8,
+    left: 8,
   },
 });

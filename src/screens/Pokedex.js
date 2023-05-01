@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView } from "react-native";
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  Image,
+} from "react-native";
 import { getPokemonsApi, getPokemonDetailsByUrlApi } from "../api/pokemon";
 import PokemonList from "../components/PokemonList";
 
-export default function Pokedex() {
+export default function Pokedex({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
 
@@ -44,6 +50,38 @@ export default function Pokedex() {
         loadPokemons={loadPokemons}
         isNext={nextUrl}
       />
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Battle");
+        }}
+        style={styles.fabLocationBR}
+      >
+        <View style={styles.fab}>
+          <Image
+            source={require("../assets/battleIcon.png")}
+            style={styles.image}
+          />
+        </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  fabLocationBR: {
+    position: "absolute",
+    bottom: 35,
+    right: 35,
+  },
+  fab: {
+    backgroundColor: "grey",
+    width: 60,
+    height: 60,
+    borderRadius: 100,
+  },
+  image: {
+    width: 60,
+    height: 60,
+  },
+});
