@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import getColorByPokemonType from "../utils/getColorByPokemonType";
 
 export default function PokemonCard(props) {
-  //const [selectedToBattle, setSelectedToBattle] = useState(null);
+  const [selected, setSelected] = useState(null);
   const { pokemon, handleSelectedToBattle } = props;
   const navigation = useNavigation();
 
@@ -24,13 +24,13 @@ export default function PokemonCard(props) {
 
   const handleSelectedToBattleChild = (pokemon) => {
     handleSelectedToBattle(pokemon);
+    handleSelected();
   };
 
-  // function handleSelectedToBattle() {
-  //   if (selectedToBattle == "../assets/battleIcon.png")
-  //     setSelectedToBattle(null);
-  //   else setSelectedToBattle("../assets/battleIcon.png");
-  // }
+  function handleSelected() {
+    if (selected == "../assets/battleIcon.png") setSelected(null);
+    else setSelected("../assets/battleIcon.png");
+  }
 
   return (
     <TouchableWithoutFeedback
@@ -39,9 +39,9 @@ export default function PokemonCard(props) {
       <View style={styles.card}>
         <View style={styles.spacing}>
           <View style={bgStyles}>
-            {/* <Img src={selectedToBattle} alt="colours" /> */}
-            {/* <Image source={selectedToBattle} style={styles.battleIcon} /> */}
-            {/* <Text style={styles.number}>{selectedToBattle}</Text> */}
+            {/* <Img src={selected} alt="colours" /> */}
+            {/* <Image source={selected} style={styles.battleIcon} /> */}
+            <Text style={styles.number}>{selected}</Text>
             <Text style={styles.number}>
               #{`${pokemon.order}`.padStart(3, 0)}
             </Text>

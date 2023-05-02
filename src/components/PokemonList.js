@@ -15,9 +15,15 @@ export default function PokemonList(props) {
   const handleSelectedToBattle = (selectedPokemon) => {
     console.log("llamado desde hijo");
     console.log(selectedPokemon);
-    setSelectedToBattle(...selectedToBattle, selectedPokemon);
-    console.log("A ver que quedo en el estado:");
-    console.log(selectedToBattle);
+
+    if (!selectedToBattle.includes(selectedPokemon)) {
+      setSelectedToBattle([...selectedToBattle, selectedPokemon]);
+    } else {
+      setSelectedToBattle(
+        selectedToBattle.filter((p) => p !== selectedPokemon)
+      );
+      console.log("EXISTE");
+    }
   };
 
   const loadMore = () => {
