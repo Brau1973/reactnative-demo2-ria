@@ -8,26 +8,15 @@ import {
 import PokemonCard from "./PokemonCard";
 
 export default function PokemonList(props) {
-  const { pokemons, loadPokemons, isNext } = props;
-
-  const [selectedToBattle, setSelectedToBattle] = useState([]);
-
-  const handleSelectedToBattle = (selectedPokemon) => {
-    console.log("llamado desde hijo");
-    console.log(selectedPokemon);
-
-    if (!selectedToBattle.includes(selectedPokemon)) {
-      setSelectedToBattle([...selectedToBattle, selectedPokemon]);
-    } else {
-      setSelectedToBattle(
-        selectedToBattle.filter((p) => p !== selectedPokemon)
-      );
-      console.log("EXISTE");
-    }
-  };
+  const { pokemons, loadPokemons, isNext, handleSelectedToBattlePokedex } =
+    props;
 
   const loadMore = () => {
     loadPokemons();
+  };
+
+  const handleSelectedToBattlePokemonList = (pokemon) => {
+    handleSelectedToBattlePokedex(pokemon);
   };
 
   return (
@@ -39,7 +28,7 @@ export default function PokemonList(props) {
       renderItem={({ item }) => (
         <PokemonCard
           pokemon={item}
-          handleSelectedToBattle={handleSelectedToBattle}
+          handleSelectedToBattlePokemonList={handleSelectedToBattlePokemonList}
         />
       )}
       contentContainerStyle={styles.flatListContentContainer}

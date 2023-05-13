@@ -13,6 +13,23 @@ export default function Pokedex({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
 
+  // PRUEBA
+  const [selectedToBattle, setSelectedToBattle] = useState([]);
+
+  const handleSelectedToBattlePokedex = (selectedPokemon) => {
+    console.log("llamado desde hijo");
+    console.log(selectedPokemon);
+
+    if (!selectedToBattle.includes(selectedPokemon)) {
+      setSelectedToBattle([...selectedToBattle, selectedPokemon]);
+    } else {
+      setSelectedToBattle(
+        selectedToBattle.filter((p) => p !== selectedPokemon)
+      );
+      console.log("EXISTE");
+    }
+  };
+
   useEffect(() => {
     (async () => {
       await loadPokemons();
@@ -49,11 +66,12 @@ export default function Pokedex({ navigation }) {
         pokemons={pokemons}
         loadPokemons={loadPokemons}
         isNext={nextUrl}
+        handleSelectedToBattlePokedex={handleSelectedToBattlePokedex}
       />
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Battle");
+          navigation.navigate("Battle", ...selectedToBattle);
         }}
         style={styles.fabLocationBR}
       >

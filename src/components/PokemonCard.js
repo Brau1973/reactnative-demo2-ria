@@ -12,7 +12,7 @@ import getColorByPokemonType from "../utils/getColorByPokemonType";
 
 export default function PokemonCard(props) {
   const [selected, setSelected] = useState(null);
-  const { pokemon, handleSelectedToBattle } = props;
+  const { pokemon, handleSelectedToBattlePokemonList } = props;
   const navigation = useNavigation();
 
   const pokemonColor = getColorByPokemonType(pokemon.type);
@@ -22,8 +22,8 @@ export default function PokemonCard(props) {
     navigation.navigate("Pokemon", { id: pokemon.id });
   };
 
-  const handleSelectedToBattleChild = (pokemon) => {
-    handleSelectedToBattle(pokemon);
+  const handleSelectedToBattlePokemonCard = (pokemon) => {
+    handleSelectedToBattlePokemonList(pokemon);
     handleSelected();
   };
 
@@ -34,7 +34,7 @@ export default function PokemonCard(props) {
 
   return (
     <TouchableWithoutFeedback
-      onPress={() => handleSelectedToBattleChild(pokemon)}
+      onPress={() => handleSelectedToBattlePokemonCard(pokemon)}
     >
       <View style={styles.card}>
         <View style={styles.spacing}>
