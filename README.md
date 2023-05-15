@@ -3,7 +3,17 @@
 
 
 **Mock ups**
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="375" height="687" src="https://app.uizard.io/p/ca356865/embed" allowfullscreen></iframe>
+
+![](https://github.com/Brau1973/reactnative-demo2-ria/blob/assets/Inicio-ee560.png) ![](https://github.com/Brau1973/reactnative-demo2-ria/blob/assets/Cuenta-cba9b.png) ![](https://github.com/Brau1973/reactnative-demo2-ria/blob/assets/Favoritos-7930e.png)
+
+![](https://github.com/Brau1973/reactnative-demo2-ria/blob/assets/Pokemos-1f026.png) ![](https://github.com/Brau1973/reactnative-demo2-ria/blob/assets/Datospokemons-c54bb.png)
+
+## Ver Mock up iterativo
+
+
+
+<img src="assets/link.png" alt="Descripción de la imagen" width="50" height="auto"><\>
+       [Ver Mock up iterativo](https://app.uizard.io/p/ca356865) </>
 
 
 
