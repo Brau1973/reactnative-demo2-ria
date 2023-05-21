@@ -9,11 +9,15 @@ import {
 import { capitalize } from "lodash";
 import { useNavigation } from "@react-navigation/native";
 import getColorByPokemonType from "../utils/getColorByPokemonType";
+import useBattle from "../hooks/useBattle";
 
 export default function PokemonCard(props) {
   const [selected, setSelected] = useState(null);
-  const { pokemon, handleSelectedToBattlePokemonList } = props;
+  const { pokemon } = props;
   const navigation = useNavigation();
+
+  //CONTEXT
+  const { addRemovePokemon } = useBattle();
 
   const pokemonColor = getColorByPokemonType(pokemon.type);
   const bgStyles = { backgroundColor: pokemonColor, ...styles.bgStyles };
@@ -22,26 +26,18 @@ export default function PokemonCard(props) {
     navigation.navigate("Pokemon", { id: pokemon.id });
   };
 
-  const handleSelectedToBattlePokemonCard = (pokemon) => {
-    handleSelectedToBattlePokemonList(pokemon);
-    handleSelected();
-  };
-
-  function handleSelected() {
-    if (selected == "../assets/battleIcon.png") setSelected(null);
-    else setSelected("../assets/battleIcon.png");
+  function handleSelected(pokemon) {
+    if (selected == "Selected") setSelected(null);
+    else setSelected("Selected");
+    addRemovePokemon(pokemon);
   }
 
   return (
-    <TouchableWithoutFeedback
-      onPress={() => handleSelectedToBattlePokemonCard(pokemon)}
-    >
+    <TouchableWithoutFeedback onPress={() => handleSelected(pokemon)}>
       <View style={styles.card}>
         <View style={styles.spacing}>
           <View style={bgStyles}>
-            {/* <Img src={selected} alt="colours" /> */}
-            {/* <Image source={selected} style={styles.battleIcon} /> */}
-            <Text style={styles.number}>{selected}</Text>
+            <Text style={styles.selected}>{selected}</Text>
             <Text style={styles.number}>
               #{`${pokemon.order}`.padStart(3, 0)}
             </Text>
@@ -73,6 +69,13 @@ const styles = StyleSheet.create({
   number: {
     position: "absolute",
     right: 10,
+    top: 10,
+    color: "#fff",
+    fontSize: 11,
+  },
+  selected: {
+    position: "absolute",
+    left: 10,
     top: 10,
     color: "#fff",
     fontSize: 11,

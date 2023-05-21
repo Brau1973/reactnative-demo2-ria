@@ -8,27 +8,12 @@ import {
 } from "react-native";
 import { getPokemonsApi, getPokemonDetailsByUrlApi } from "../api/pokemon";
 import PokemonList from "../components/PokemonList";
+import useBattle from "../hooks/useBattle";
 
 export default function Pokedex({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
-
-  // PRUEBA
-  const [selectedToBattle, setSelectedToBattle] = useState([]);
-
-  const handleSelectedToBattlePokedex = (selectedPokemon) => {
-    console.log("llamado desde hijo");
-    console.log(selectedPokemon);
-
-    if (!selectedToBattle.includes(selectedPokemon)) {
-      setSelectedToBattle([...selectedToBattle, selectedPokemon]);
-    } else {
-      setSelectedToBattle(
-        selectedToBattle.filter((p) => p !== selectedPokemon)
-      );
-      console.log("EXISTE");
-    }
-  };
+  const { selectedToBattle } = useBattle();
 
   useEffect(() => {
     (async () => {
@@ -60,18 +45,25 @@ export default function Pokedex({ navigation }) {
     }
   };
 
+  const navigateToBattle = () => {
+    if (selectedToBattle.length === 2) {
+      navigation.navigate("Battle");
+    }
+  };
+
   return (
     <SafeAreaView>
       <PokemonList
         pokemons={pokemons}
         loadPokemons={loadPokemons}
         isNext={nextUrl}
-        handleSelectedToBattlePokedex={handleSelectedToBattlePokedex}
       />
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Battle", ...selectedToBattle);
+          navigateToBattle();
+          // {() => handleSelected(pokemon)}
+          // navigation.navigate("Battle");
         }}
         style={styles.fabLocationBR}
       >

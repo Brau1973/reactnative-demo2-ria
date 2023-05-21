@@ -8,15 +8,10 @@ import {
 import PokemonCard from "./PokemonCard";
 
 export default function PokemonList(props) {
-  const { pokemons, loadPokemons, isNext, handleSelectedToBattlePokedex } =
-    props;
+  const { pokemons, loadPokemons, isNext } = props;
 
   const loadMore = () => {
     loadPokemons();
-  };
-
-  const handleSelectedToBattlePokemonList = (pokemon) => {
-    handleSelectedToBattlePokedex(pokemon);
   };
 
   return (
@@ -25,12 +20,7 @@ export default function PokemonList(props) {
       numColumns={2}
       showsVerticalScrollIndicator={false}
       keyExtractor={(pokemon) => String(pokemon.id)}
-      renderItem={({ item }) => (
-        <PokemonCard
-          pokemon={item}
-          handleSelectedToBattlePokemonList={handleSelectedToBattlePokemonList}
-        />
-      )}
+      renderItem={({ item }) => <PokemonCard pokemon={item} />}
       contentContainerStyle={styles.flatListContentContainer}
       onEndReached={isNext && loadMore}
       onEndReachedThreshold={0.1}

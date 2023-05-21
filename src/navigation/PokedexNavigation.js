@@ -22,7 +22,7 @@ export default function PokedexNavigation() {
       <Stack.Screen
         name="Battle"
         component={BattleScreen}
-        options={{ title: "", headerTransparent: true }}
+        options={{ title: "Battle", headerTransparent: false }}
       />
     </Stack.Navigator>
   );
