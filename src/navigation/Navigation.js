@@ -12,12 +12,12 @@ export default function Navigation() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Favorite"
+        name="Home"
         component={FavoriteNavigation}
         options={{
-          tabBarLabel: "Favoritos",
+          tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <Icon name="heart" color={color} size={size} />
+            <Icon name="home" color={color} size={size} />
           ),
         }}
       />
