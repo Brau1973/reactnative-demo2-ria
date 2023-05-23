@@ -6,7 +6,6 @@ import { getPokemonDetailsApi } from "../api/pokemon";
 export default function Battle() {
   //TEST CONTEXT
   const { selectedToBattle } = useBattle();
-  console.log(selectedToBattle);
 
   const [pokemon1, setPokemon1] = useState(null);
   const [pokemon2, setPokemon2] = useState(null);
