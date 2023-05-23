@@ -62,8 +62,6 @@ export default function Pokedex({ navigation }) {
       <TouchableOpacity
         onPress={() => {
           navigateToBattle();
-          // {() => handleSelected(pokemon)}
-          // navigation.navigate("Battle");
         }}
         style={styles.fabLocationBR}
       >
