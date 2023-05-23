@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView, Text } from "react-native";
 import useBattle from "../hooks/useBattle";
 import { getPokemonDetailsApi } from "../api/pokemon";
-import Header from "../components/Pokemon/Header";
 
 export default function Battle() {
   //TEST CONTEXT
