@@ -1,5 +1,46 @@
 # Battle Pokémon
 
+## Configuracion e instalacion:
+Si tienes un proyecto de React Native ya creado con Expo, sigue estos pasos para configurar e instalar el proyecto:
+
+1. Requisitos previos:
+   - Asegúrate de tener Node.js instalado en tu sistema. Puedes descargarlo e instalarlo desde el sitio web oficial de Node.js.
+   - Asegúrate de tener un administrador de paquetes JavaScript como npm (incluido con Node.js) o Yarn instalado en tu sistema.
+
+2. Instalación de Expo CLI:
+   - Abre tu terminal o línea de comandos.
+   - Ejecuta el siguiente comando para instalar el Expo CLI de forma global en tu sistema:
+     ```
+     npm install -g expo-cli
+     ```
+     o
+     ```
+     yarn global add expo-cli
+     ```
+
+3. Navegación al directorio del proyecto:
+   - En tu terminal o línea de comandos, navega hasta la ubicación donde se encuentra tu proyecto de React Native con Expo.
+
+4. Instalación de dependencias:
+   - Ejecuta el siguiente comando para instalar las dependencias del proyecto:
+     ```
+     npm install
+     ```
+     o
+     ```
+     yarn install
+     ```
+
+5. Ejecución del proyecto:
+   - Ejecuta el siguiente comando para iniciar el proyecto:
+     ```
+     npx expo start
+     ```
+     Esto abrirá una ventana del navegador con la interfaz de Expo DevTools y generará un código QR.
+
+6. Ejecución en un dispositivo físico o emulador:
+   - Si deseas ejecutar la aplicación en un dispositivo físico, escanea el código QR generado con la aplicación Expo Go (disponible en la App Store o Google Play Store).
+   - Si deseas ejecutar la aplicación en un emulador de Android o iOS, sigue las instrucciones proporcionadas en la interfaz de Expo DevTools para iniciar el emulador correspondiente y luego haz clic en "Run on Android device/emulator" o "Run on iOS simulator".
 
 
 ## Mockup:
