@@ -31,16 +31,6 @@ export default function Navigation() {
         }}
       />
 
-      <Tab.Screen
-        name="Account"
-        component={AccountNavigation}
-        options={{
-          tabBarLabel: "Mi cuenta",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="user" color={color} size={size} />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 }
@@ -53,3 +43,15 @@ function renderPokeball() {
     />
   );
 }
+
+/*
+      <Tab.Screen
+        name="Account"
+        component={AccountNavigation}
+        options={{
+          tabBarLabel: "Mi cuenta",
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="user" color={color} size={size} />
+          ),
+        }}
+      />*/
