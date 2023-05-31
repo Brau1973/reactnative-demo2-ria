@@ -26,7 +26,7 @@ Si tienes un proyecto de React Native ya creado con Expo, sigue estos pasos para
      ```
      npm install
      ```
-     - En caso de no funcionará 
+     - En caso de que el comando no funcionase utilizar:
         ```
        npm install --force
        ```
@@ -39,10 +39,10 @@ Si tienes un proyecto de React Native ya creado con Expo, sigue estos pasos para
      ```
      npx expo start
      ```
-     o
-     ```
-     npx expo start --tunnel 
-     ```
+     - En caso de tener problemas con la conexión utilizar:
+        ```
+       npm install --force
+       ```
 
      Esto abrirá una ventana del navegador con la interfaz de Expo DevTools y generará un código QR.
     
