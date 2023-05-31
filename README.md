@@ -66,7 +66,8 @@ Por el resto de plantillas se optó por un estilo básico como el menú de inici
 
 ## Mapa de navegación:
 ![](https://lucid.app/publicSegments/view/07983fa3-a427-4c66-9f4e-33569dcc664f/image.png)
-
+## Diseño de sistema:
+![](https://raw.githubusercontent.com/Brau1973/reactnative-demo2-ria/main/assets/img.png)
 ## Historias de Usuario:
 
 | Título: Ver Listado de Pokémons. |
