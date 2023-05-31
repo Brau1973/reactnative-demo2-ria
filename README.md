@@ -26,18 +26,26 @@ Si tienes un proyecto de React Native ya creado con Expo, sigue estos pasos para
      ```
      npm install
      ```
+     - En caso de no funcionará 
+        ```
+       npm install --force
+       ```
      o
      ```
      yarn install
      ```
-
 5. Ejecución del proyecto:
    - Ejecuta el siguiente comando para iniciar el proyecto:
      ```
      npx expo start
      ```
-     Esto abrirá una ventana del navegador con la interfaz de Expo DevTools y generará un código QR.
+     o
+     ```
+     npx expo start --tunnel 
+     ```
 
+     Esto abrirá una ventana del navegador con la interfaz de Expo DevTools y generará un código QR.
+    
 6. Ejecución en un dispositivo físico o emulador:
    - Si deseas ejecutar la aplicación en un dispositivo físico, escanea el código QR generado con la aplicación Expo Go (disponible en la App Store o Google Play Store).
    - Si deseas ejecutar la aplicación en un emulador de Android o iOS, sigue las instrucciones proporcionadas en la interfaz de Expo DevTools para iniciar el emulador correspondiente y luego haz clic en "Run on Android device/emulator" o "Run on iOS simulator".
