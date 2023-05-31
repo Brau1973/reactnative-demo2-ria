@@ -41,7 +41,7 @@ Si tienes un proyecto de React Native ya creado con Expo, sigue estos pasos para
      ```
      - En caso de tener problemas con la conexión utilizar:
         ```
-       npm install --force
+       npx expo start --tunnel
        ```
 
      Esto abrirá una ventana del navegador con la interfaz de Expo DevTools y generará un código QR.
